@@ -185,130 +185,102 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">🎉 Happy Birthday! 🎉</h1>
-        <div class="celebration">🎂✨🎁✨🎂</div>
-        <div class="photo-container">
-            <img src="Taka.jpg" alt="高橋さんの写真" class="photo">
+    <!-- BGM Audio -->
+    <audio id="bgm" loop preload="auto">
+        <source src="A.MOV" type="audio/mp4">
+    </audio>
+
+    <!-- Start Page -->
+    <div class="start-page" id="startPage">
+        <div class="start-content">
+            <div class="start-icon">🎵</div>
+            <div class="start-title">タップしてスタート！</div>
+            <div class="start-subtitle">高橋さんの誕生日をお祝いしましょう</div>
+            <div class="start-button">🎂 Tap to Start 🎉</div>
         </div>
-        <div class="message">高橋さん、誕生日おめでとうございます！！㊗️㊗️
-
-多くの人は固定概念に囚われ、自分の不出来を環境や周りのせいにしがちですが、高橋さんの素晴らしいところは、物事を本質まで細分化して思考できること、不必要なものを省いて最も効率よく進んでいけることだと感じます。常識にとらわれることなく、遊びもビジネスも桁違いで、その姿は眩しくいつも映ります。「矮小」という言葉の真逆に位置する存在だと感じていますw
-
-自分のやりたいことだけを突き詰めて結果を出して資本主義の世界に君臨している生き様は、かっこいいです。派手に遊んで、そして結果も出していく、、いいです。
-
-たかはしさんの素敵ポイントに他人を下げない、否定しない。いろんな人を肯定し、実績などで見下したりせず対等に考えているところです。高橋さんほど心に余裕がある人は珍しいと思います。
-
-最初に出会って渋谷のあの薄暗いレストランでご飯を食べた日、私の価値観は大きく変わりました。凝り固まっていた価値観を破壊してもらいました。全力で遊んでもいいんだと教えてもらった、いや、正確には、世間体を気にせずやりたいことを素直にかましていって、努力も怠らずに結果も出して黙らせていく、そういう姿です
-
-いつも仲良くしてもらえていることが本当にありがたく思っています。尊敬している高橋さんでなければ、わざわざ猫の餌やりのために留守番などしません。
-
-プールに行った後にまた発見、また尊敬できるところが増えました。人に対して否定的になることがないだけでなく、いつでも、どんな時も前向きなところです。訴訟された時もためになると言って自分で手続きを進めたり、どんな時も楽しんでいる姿を見て、改めて評価が上がりました。プールでも心の底から楽しんでいて、少し悲観的になりがちな僕にとっては、真似したい部分です。
-
-多くの人は実績で人を見がちで、高橋さんの稼いでいる額で尊敬している人もいるかもしれません。しかし私は、生き様にとても影響を受けており、そこがお気にです。
-
-友達として、先輩として、経営者として、心から尊敬しています。いつまでも見上げているつもりはありません。私も強くなっていくので、見ていてください。もし高橋さんの会社が危うくなったら、私の会社の社員になってもらいます！
-
-これからも楽しく遊んで、いろんな仕事で絡んでいきたいです！
-
-素敵な一年になりますように。</div>
-        <!-- BGM Audio -->
-        <audio id="bgm" loop preload="auto">
-            <source src="A.MOV" type="audio/mp4">
-        </audio>
-        
-        <!-- Start Page -->
-        <div class="start-page" id="startPage">
-            <div class="start-content">
-                <div class="start-icon">🎵</div>
-                <div class="start-title">タップしてスタート！</div>
-                <div class="start-subtitle">高橋さんの誕生日をお祝いしましょう</div>
-                <div class="start-button">🎂 Tap to Start 🎉</div>
-            </div>
-        </div>
-
-        <!-- Birthday Page -->
-        <div class="birthday-page" id="birthdayPage">
-            <div class="container">
-                <h1 class="title">🎉 Happy Birthday! 🎉</h1>
-                <div class="celebration">🎂✨🎁✨🎂</div>
-                <div class="photo-container">
-                    <img src="Taka.jpg" alt="高橋さんの写真" class="photo">
-                </div>
-                <div class="message">高橋さん、誕生日おめでとうございます！！㊗️㊗️
-
-多くの人は固定概念に囚われ、自分の不出来を環境や周りのせいにしがちですが、高橋さんの素晴らしいところは、物事を本質まで細分化して思考できること、不必要なものを省いて最も効率よく進んでいけることだと感じます。常識にとらわれることなく、遊びもビジネスも桁違いで、その姿は眩しくいつも映ります。「矮小」という言葉の真逆に位置する存在だと感じていますw
-
-自分のやりたいことだけを突き詰めて結果を出して資本主義の世界に君臨している生き様は、かっこいいです。派手に遊んで、そして結果も出していく、、いいです。
-
-たかはしさんの素敵ポイントに他人を下げない、否定しない。いろんな人を肯定し、実績などで見下したりせず対等に考えているところです。高橋さんほど心に余裕がある人は珍しいと思います。
-
-最初に出会って渋谷のあの薄暗いレストランでご飯を食べた日、私の価値観は大きく変わりました。凝り固まっていた価値観を破壊してもらいました。全力で遊んでもいいんだと教えてもらった、いや、正確には、世間体を気にせずやりたいことを素直にかましていって、努力も怠らずに結果も出して黙らせていく、そういう姿です
-
-いつも仲良くしてもらえていることが本当にありがたく思っています。尊敬している高橋さんでなければ、わざわざ猫の餌やりのために留守番などしません。
-
-プールに行った後にまた発見、また尊敬できるところが増えました。人に対して否定的になることがないだけでなく、いつでも、どんな時も前向きなところです。訴訟された時もためになると言って自分で手続きを進めたり、どんな時も楽しんでいる姿を見て、改めて評価が上がりました。プールでも心の底から楽しんでいて、少し悲観的になりがちな僕にとっては、真似したい部分です。
-
-多くの人は実績で人を見がちで、高橋さんの稼いでいる額で尊敬している人もいるかもしれません。しかし私は、生き様にとても影響を受けており、そこがお気にです。
-
-友達として、先輩として、経営者として、心から尊敬しています。いつまでも見上げているつもりはありません。私も強くなっていくので、見ていてください。もし高橋さんの会社が危うくなったら、私の会社の社員になってもらいます！
-
-これからも楽しく遊んで、いろんな仕事で絡んでいきたいです！
-
-素敵な一年になりますように。</div>
-                <div class="video-container">
-                    <video class="video" muted loop playsinline controls preload="auto" buffered>
-                        <source src="A.MOV" type="video/mp4">
-                        お使いのブラウザは動画の再生をサポートしていません。
-                    </video>
-                </div>
-            </div>
-        </div>
-        
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgm = document.getElementById('bgm');
-            const video = document.querySelector('video');
-            const startPage = document.getElementById('startPage');
-            const birthdayPage = document.getElementById('birthdayPage');
-            
-            // 動画読み込み状況の表示
-            video.addEventListener('loadstart', function() {
-                console.log('動画読み込み開始');
-            });
-            
-            video.addEventListener('canplay', function() {
-                console.log('動画再生準備完了');
-                video.currentTime = 0;
-            });
-            
-            video.addEventListener('canplaythrough', function() {
-                console.log('動画完全読み込み完了');
-            });
-            
-            // スタートページクリックで誕生日ページに切り替え
-            startPage.addEventListener('click', function() {
-                // BGMと動画を開始
-                bgm.currentTime = 0;
-                bgm.play();
-                video.currentTime = 0;
-                video.play();
-                
-                // ページ切り替えアニメーション
-                startPage.classList.add('hidden');
-                setTimeout(() => {
-                    startPage.style.display = 'none';
-                    birthdayPage.classList.add('visible');
-                }, 500);
-            });
-            
-            // 自動再生を試行（成功してもスタートページは表示）
-            bgm.play().catch(() => {
-                // 自動再生失敗は正常な動作
-                console.log('自動再生がブロックされました（正常）');
-            });
-        });
-        </script>
     </div>
+
+    <!-- Birthday Page -->
+    <div class="birthday-page" id="birthdayPage">
+        <div class="container">
+            <h1 class="title">🎉 Happy Birthday! 🎉</h1>
+            <div class="celebration">🎂✨🎁✨🎂</div>
+            <div class="photo-container">
+                <img src="Taka.jpg" alt="高橋さんの写真" class="photo">
+            </div>
+            <div class="message">高橋さん、誕生日おめでとうございます！！㊗️㊗️
+
+多くの人は固定概念に囚われ、自分の不出来を環境や周りのせいにしがちですが、高橋さんの素晴らしいところは、物事を本質まで細分化して思考できること、不必要なものを省いて最も効率よく進んでいけることだと感じます。常識にとらわれることなく、遊びもビジネスも桁違いで、その姿は眩しくいつも映ります。「矮小」という言葉の真逆に位置する存在だと感じていますw
+
+自分のやりたいことだけを突き詰めて結果を出して資本主義の世界に君臨している生き様は、かっこいいです。派手に遊んで、そして結果も出していく、、いいです。
+
+たかはしさんの素敵ポイントに他人を下げない、否定しない。いろんな人を肯定し、実績などで見下したりせず対等に考えているところです。高橋さんほど心に余裕がある人は珍しいと思います。
+
+最初に出会って渋谷のあの薄暗いレストランでご飯を食べた日、私の価値観は大きく変わりました。凝り固まっていた価値観を破壊してもらいました。全力で遊んでもいいんだと教えてもらった、いや、正確には、世間体を気にせずやりたいことを素直にかましていって、努力も怠らずに結果も出して黙らせていく、そういう姿です
+
+いつも仲良くしてもらえていることが本当にありがたく思っています。尊敬している高橋さんでなければ、わざわざ猫の餌やりのために留守番などしません。
+
+プールに行った後にまた発見、また尊敬できるところが増えました。人に対して否定的になることがないだけでなく、いつでも、どんな時も前向きなところです。訴訟された時もためになると言って自分で手続きを進めたり、どんな時も楽しんでいる姿を見て、改めて評価が上がりました。プールでも心の底から楽しんでいて、少し悲観的になりがちな僕にとっては、真似したい部分です。
+
+多くの人は実績で人を見がちで、高橋さんの稼いでいる額で尊敬している人もいるかもしれません。しかし私は、生き様にとても影響を受けており、そこがお気にです。
+
+友達として、先輩として、経営者として、心から尊敬しています。いつまでも見上げているつもりはありません。私も強くなっていくので、見ていてください。もし高橋さんの会社が危うくなったら、私の会社の社員になってもらいます！
+
+これからも楽しく遊んで、いろんな仕事で絡んでいきたいです！
+
+素敵な一年になりますように。</div>
+            <div class="video-container">
+                <video class="video" muted loop playsinline controls preload="auto" buffered>
+                    <source src="A.MOV" type="video/mp4">
+                    お使いのブラウザは動画の再生をサポートしていません。
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const bgm = document.getElementById('bgm');
+        const video = document.querySelector('video');
+        const startPage = document.getElementById('startPage');
+        const birthdayPage = document.getElementById('birthdayPage');
+        
+        // 動画読み込み状況の表示
+        video.addEventListener('loadstart', function() {
+            console.log('動画読み込み開始');
+        });
+        
+        video.addEventListener('canplay', function() {
+            console.log('動画再生準備完了');
+            video.currentTime = 0;
+        });
+        
+        video.addEventListener('canplaythrough', function() {
+            console.log('動画完全読み込み完了');
+        });
+        
+        // スタートページクリックで誕生日ページに切り替え
+        startPage.addEventListener('click', function() {
+            // BGMと動画を開始
+            bgm.currentTime = 0;
+            bgm.play();
+            video.currentTime = 0;
+            video.play();
+            
+            // ページ切り替えアニメーション
+            startPage.classList.add('hidden');
+            setTimeout(() => {
+                startPage.style.display = 'none';
+                birthdayPage.classList.add('visible');
+            }, 500);
+        });
+        
+        // 自動再生を試行（成功してもスタートページは表示）
+        bgm.play().catch(() => {
+            // 自動再生失敗は正常な動作
+            console.log('自動再生がブロックされました（正常）');
+        });
+    });
+    </script>
 </body>
 </html>
