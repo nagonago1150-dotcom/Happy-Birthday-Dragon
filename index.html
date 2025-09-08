@@ -121,13 +121,38 @@
 これからも楽しく遊んで、いろんな仕事で絡んでいきたいです！
 
 素敵な一年になりますように。</div>
+        <!-- BGM Audio -->
+        <audio id="bgm" autoplay loop>
+            <source src="A.MOV" type="audio/mp4">
+        </audio>
+        
         <div class="video-container">
-            <p style="text-align: center; color: #2c3e50; margin-bottom: 10px;">🎵 クリックして音声を有効にしてください 🎵</p>
-            <video class="video" autoplay muted loop playsinline controls onclick="this.muted=false">
+            <video class="video" muted loop playsinline controls>
                 <source src="A.MOV" type="video/mp4">
                 お使いのブラウザは動画の再生をサポートしていません。
             </video>
         </div>
+        
+        <script>
+        // BGM自動再生の試行
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgm = document.getElementById('bgm');
+            const video = document.querySelector('video');
+            
+            // ページ読み込み時にBGM再生を試行
+            const playBGM = () => {
+                bgm.play().catch(() => {
+                    // 自動再生が失敗した場合、ユーザーインタラクション待ち
+                    document.addEventListener('click', function() {
+                        bgm.play();
+                        video.play();
+                    }, {once: true});
+                });
+            };
+            
+            playBGM();
+        });
+        </script>
     </div>
 </body>
 </html>
