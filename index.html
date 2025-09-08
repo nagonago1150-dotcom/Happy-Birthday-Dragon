@@ -64,6 +64,12 @@
             60% { transform: translateY(-5px); }
         }
 
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
         .photo-container {
             text-align: center;
             margin: 30px 0;
@@ -127,11 +133,12 @@
         </audio>
         
         <!-- Click to start overlay -->
-        <div id="start-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer;">
-            <div style="text-align: center; color: white; font-size: 2rem;">
-                <div>🎵</div>
-                <div style="margin-top: 20px;">クリックして音楽を開始</div>
-                <div style="font-size: 1rem; margin-top: 10px;">Click to Start Music</div>
+        <div id="start-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,107,107,0.95), rgba(254,202,87,0.95), rgba(72,219,251,0.95), rgba(255,159,243,0.95)); z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer; animation: pulse 2s infinite;">
+            <div style="text-align: center; color: white; font-size: 2.5rem; background: rgba(255,255,255,0.2); padding: 50px; border-radius: 30px; backdrop-filter: blur(10px); border: 3px solid rgba(255,255,255,0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="font-size: 4rem; animation: bounce 1.5s infinite;">🎵</div>
+                <div style="margin-top: 30px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">タップしてスタート！</div>
+                <div style="font-size: 1.5rem; margin-top: 15px; opacity: 0.9;">高橋さんの誕生日をお祝いしましょう</div>
+                <div style="font-size: 1.2rem; margin-top: 20px; padding: 15px 30px; background: rgba(255,255,255,0.3); border-radius: 25px; display: inline-block;">🎂 Tap to Start 🎉</div>
             </div>
         </div>
         
