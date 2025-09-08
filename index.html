@@ -136,7 +136,7 @@
         </div>
         
         <div class="video-container">
-            <video class="video" muted loop playsinline controls>
+            <video class="video" muted loop playsinline controls preload="auto" buffered>
                 <source src="A.MOV" type="video/mp4">
                 お使いのブラウザは動画の再生をサポートしていません。
             </video>
@@ -148,9 +148,26 @@
             const video = document.querySelector('video');
             const overlay = document.getElementById('start-overlay');
             
+            // 動画読み込み状況の表示
+            video.addEventListener('loadstart', function() {
+                console.log('動画読み込み開始');
+            });
+            
+            video.addEventListener('canplay', function() {
+                console.log('動画再生準備完了');
+                // 動画が再生可能になったら即座に開始準備
+                video.currentTime = 0;
+            });
+            
+            video.addEventListener('canplaythrough', function() {
+                console.log('動画完全読み込み完了');
+            });
+            
             // オーバーレイクリックで音楽開始
             overlay.addEventListener('click', function() {
+                bgm.currentTime = 0; // 最初から再生
                 bgm.play();
+                video.currentTime = 0; // 最初から再生
                 video.play();
                 overlay.style.display = 'none';
             });
