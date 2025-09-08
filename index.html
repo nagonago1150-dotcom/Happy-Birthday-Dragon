@@ -122,9 +122,18 @@
 
 素敵な一年になりますように。</div>
         <!-- BGM Audio -->
-        <audio id="bgm" autoplay loop>
+        <audio id="bgm" loop preload="auto">
             <source src="A.MOV" type="audio/mp4">
         </audio>
+        
+        <!-- Click to start overlay -->
+        <div id="start-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+            <div style="text-align: center; color: white; font-size: 2rem;">
+                <div>🎵</div>
+                <div style="margin-top: 20px;">クリックして音楽を開始</div>
+                <div style="font-size: 1rem; margin-top: 10px;">Click to Start Music</div>
+            </div>
+        </div>
         
         <div class="video-container">
             <video class="video" muted loop playsinline controls>
@@ -134,23 +143,26 @@
         </div>
         
         <script>
-        // BGM自動再生の試行
         document.addEventListener('DOMContentLoaded', function() {
             const bgm = document.getElementById('bgm');
             const video = document.querySelector('video');
+            const overlay = document.getElementById('start-overlay');
             
-            // ページ読み込み時にBGM再生を試行
-            const playBGM = () => {
-                bgm.play().catch(() => {
-                    // 自動再生が失敗した場合、ユーザーインタラクション待ち
-                    document.addEventListener('click', function() {
-                        bgm.play();
-                        video.play();
-                    }, {once: true});
-                });
-            };
+            // オーバーレイクリックで音楽開始
+            overlay.addEventListener('click', function() {
+                bgm.play();
+                video.play();
+                overlay.style.display = 'none';
+            });
             
-            playBGM();
+            // 自動再生を試行（成功すればオーバーレイを隠す）
+            bgm.play().then(() => {
+                overlay.style.display = 'none';
+                video.play();
+            }).catch(() => {
+                // 自動再生失敗時はオーバーレイを表示
+                overlay.style.display = 'flex';
+            });
         });
         </script>
     </div>
