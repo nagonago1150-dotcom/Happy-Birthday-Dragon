@@ -8,14 +8,99 @@
         body {
             margin: 0;
             padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Start Page Styles */
+        .start-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            z-index: 10000;
+            cursor: pointer;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .start-page.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .start-content {
+            text-align: center;
+            color: white;
+            background: rgba(255,255,255,0.15);
+            padding: 60px 40px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+
+        .start-content:hover {
+            transform: scale(1.05);
+        }
+
+        .start-icon {
+            font-size: 6rem;
+            animation: bounce 2s infinite;
+            margin-bottom: 30px;
+        }
+
+        .start-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        .start-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .start-button {
+            font-size: 1.4rem;
+            padding: 20px 40px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50px;
+            display: inline-block;
+            border: 2px solid rgba(255,255,255,0.5);
+            animation: pulse 2s infinite;
+        }
+
+        /* Birthday Page Styles */
+        .birthday-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .birthday-page.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @keyframes gradient {
@@ -132,28 +217,60 @@
             <source src="A.MOV" type="audio/mp4">
         </audio>
         
-        <!-- Click to start overlay -->
-        <div id="start-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,107,107,0.95), rgba(254,202,87,0.95), rgba(72,219,251,0.95), rgba(255,159,243,0.95)); z-index: 9999; display: flex; justify-content: center; align-items: center; cursor: pointer; animation: pulse 2s infinite;">
-            <div style="text-align: center; color: white; font-size: 2.5rem; background: rgba(255,255,255,0.2); padding: 50px; border-radius: 30px; backdrop-filter: blur(10px); border: 3px solid rgba(255,255,255,0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                <div style="font-size: 4rem; animation: bounce 1.5s infinite;">🎵</div>
-                <div style="margin-top: 30px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">タップしてスタート！</div>
-                <div style="font-size: 1.5rem; margin-top: 15px; opacity: 0.9;">高橋さんの誕生日をお祝いしましょう</div>
-                <div style="font-size: 1.2rem; margin-top: 20px; padding: 15px 30px; background: rgba(255,255,255,0.3); border-radius: 25px; display: inline-block;">🎂 Tap to Start 🎉</div>
+        <!-- Start Page -->
+        <div class="start-page" id="startPage">
+            <div class="start-content">
+                <div class="start-icon">🎵</div>
+                <div class="start-title">タップしてスタート！</div>
+                <div class="start-subtitle">高橋さんの誕生日をお祝いしましょう</div>
+                <div class="start-button">🎂 Tap to Start 🎉</div>
             </div>
         </div>
-        
-        <div class="video-container">
-            <video class="video" muted loop playsinline controls preload="auto" buffered>
-                <source src="A.MOV" type="video/mp4">
-                お使いのブラウザは動画の再生をサポートしていません。
-            </video>
+
+        <!-- Birthday Page -->
+        <div class="birthday-page" id="birthdayPage">
+            <div class="container">
+                <h1 class="title">🎉 Happy Birthday! 🎉</h1>
+                <div class="celebration">🎂✨🎁✨🎂</div>
+                <div class="photo-container">
+                    <img src="Taka.jpg" alt="高橋さんの写真" class="photo">
+                </div>
+                <div class="message">高橋さん、誕生日おめでとうございます！！㊗️㊗️
+
+多くの人は固定概念に囚われ、自分の不出来を環境や周りのせいにしがちですが、高橋さんの素晴らしいところは、物事を本質まで細分化して思考できること、不必要なものを省いて最も効率よく進んでいけることだと感じます。常識にとらわれることなく、遊びもビジネスも桁違いで、その姿は眩しくいつも映ります。「矮小」という言葉の真逆に位置する存在だと感じていますw
+
+自分のやりたいことだけを突き詰めて結果を出して資本主義の世界に君臨している生き様は、かっこいいです。派手に遊んで、そして結果も出していく、、いいです。
+
+たかはしさんの素敵ポイントに他人を下げない、否定しない。いろんな人を肯定し、実績などで見下したりせず対等に考えているところです。高橋さんほど心に余裕がある人は珍しいと思います。
+
+最初に出会って渋谷のあの薄暗いレストランでご飯を食べた日、私の価値観は大きく変わりました。凝り固まっていた価値観を破壊してもらいました。全力で遊んでもいいんだと教えてもらった、いや、正確には、世間体を気にせずやりたいことを素直にかましていって、努力も怠らずに結果も出して黙らせていく、そういう姿です
+
+いつも仲良くしてもらえていることが本当にありがたく思っています。尊敬している高橋さんでなければ、わざわざ猫の餌やりのために留守番などしません。
+
+プールに行った後にまた発見、また尊敬できるところが増えました。人に対して否定的になることがないだけでなく、いつでも、どんな時も前向きなところです。訴訟された時もためになると言って自分で手続きを進めたり、どんな時も楽しんでいる姿を見て、改めて評価が上がりました。プールでも心の底から楽しんでいて、少し悲観的になりがちな僕にとっては、真似したい部分です。
+
+多くの人は実績で人を見がちで、高橋さんの稼いでいる額で尊敬している人もいるかもしれません。しかし私は、生き様にとても影響を受けており、そこがお気にです。
+
+友達として、先輩として、経営者として、心から尊敬しています。いつまでも見上げているつもりはありません。私も強くなっていくので、見ていてください。もし高橋さんの会社が危うくなったら、私の会社の社員になってもらいます！
+
+これからも楽しく遊んで、いろんな仕事で絡んでいきたいです！
+
+素敵な一年になりますように。</div>
+                <div class="video-container">
+                    <video class="video" muted loop playsinline controls preload="auto" buffered>
+                        <source src="A.MOV" type="video/mp4">
+                        お使いのブラウザは動画の再生をサポートしていません。
+                    </video>
+                </div>
+            </div>
         </div>
         
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const bgm = document.getElementById('bgm');
             const video = document.querySelector('video');
-            const overlay = document.getElementById('start-overlay');
+            const startPage = document.getElementById('startPage');
+            const birthdayPage = document.getElementById('birthdayPage');
             
             // 動画読み込み状況の表示
             video.addEventListener('loadstart', function() {
@@ -162,7 +279,6 @@
             
             video.addEventListener('canplay', function() {
                 console.log('動画再生準備完了');
-                // 動画が再生可能になったら即座に開始準備
                 video.currentTime = 0;
             });
             
@@ -170,22 +286,26 @@
                 console.log('動画完全読み込み完了');
             });
             
-            // オーバーレイクリックで音楽開始
-            overlay.addEventListener('click', function() {
-                bgm.currentTime = 0; // 最初から再生
+            // スタートページクリックで誕生日ページに切り替え
+            startPage.addEventListener('click', function() {
+                // BGMと動画を開始
+                bgm.currentTime = 0;
                 bgm.play();
-                video.currentTime = 0; // 最初から再生
+                video.currentTime = 0;
                 video.play();
-                overlay.style.display = 'none';
+                
+                // ページ切り替えアニメーション
+                startPage.classList.add('hidden');
+                setTimeout(() => {
+                    startPage.style.display = 'none';
+                    birthdayPage.classList.add('visible');
+                }, 500);
             });
             
-            // 自動再生を試行（成功すればオーバーレイを隠す）
-            bgm.play().then(() => {
-                overlay.style.display = 'none';
-                video.play();
-            }).catch(() => {
-                // 自動再生失敗時はオーバーレイを表示
-                overlay.style.display = 'flex';
+            // 自動再生を試行（成功してもスタートページは表示）
+            bgm.play().catch(() => {
+                // 自動再生失敗は正常な動作
+                console.log('自動再生がブロックされました（正常）');
             });
         });
         </script>
